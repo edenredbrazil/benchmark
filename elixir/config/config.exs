@@ -6,12 +6,11 @@
 use Mix.Config
 
 # Configures the endpoint
-config :rest_api, RestApi.Endpoint,
+config :elixir_api, ElixirApi.Endpoint,
   url: [host: "localhost"],
-  root: Path.dirname(__DIR__),
-  secret_key_base: "gNxriU7Zawpw1bZQ0AM7YmaWwhzw7OZ1C/eZCLDnMgQb0N3di63pJSxHTVHgQzMT",
-  render_errors: [accepts: ~w(html json)],
-  pubsub: [name: RestApi.PubSub,
+  secret_key_base: "YiKcz3GGjsMh2d8HONKfaKkRIh7VfW97sk+sQBfRiNLtOuF7wzVI7TCqjkENnTHM",
+  render_errors: [view: ElixirApi.ErrorView, accepts: ~w(json)],
+  pubsub: [name: ElixirApi.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
@@ -22,8 +21,3 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
-
-# Configure phoenix generators
-config :phoenix, :generators,
-  migration: true,
-  binary_id: false

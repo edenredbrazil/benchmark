@@ -1,13 +1,13 @@
-defmodule RestApi.Router do
-  use RestApi.Web, :router
+defmodule ElixirApi.Router do
+  use ElixirApi.Web, :router
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/api", RestApi do
+  scope "/", ElixirApi do
     pipe_through :api
-    resources "/json", PageController
+
+    resources "/json", HelloController
   end
-      
 end

@@ -1,12 +1,12 @@
-defmodule RestApi.Web do
+defmodule ElixirApi.Web do
   @moduledoc """
   A module that keeps using definitions for controllers,
   views and so on.
 
   This can be used in your application as:
 
-      use RestApi.Web, :controller
-      use RestApi.Web, :view
+      use ElixirApi.Web, :controller
+      use ElixirApi.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -18,11 +18,7 @@ defmodule RestApi.Web do
 
   def model do
     quote do
-      use Ecto.Schema
-
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query, only: [from: 1, from: 2]
+      # Define common model functionality
     end
   end
 
@@ -30,12 +26,8 @@ defmodule RestApi.Web do
     quote do
       use Phoenix.Controller
 
-      alias RestApi.Repo
-      import Ecto
-      import Ecto.Query, only: [from: 1, from: 2]
-
-      import RestApi.Router.Helpers
-      import RestApi.Gettext
+      import ElixirApi.Router.Helpers
+      import ElixirApi.Gettext
     end
   end
 
@@ -46,12 +38,9 @@ defmodule RestApi.Web do
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_csrf_token: 0, get_flash: 2, view_module: 1]
 
-      # Use all HTML functionality (forms, tags, etc)
-      use Phoenix.HTML
-
-      import RestApi.Router.Helpers
-      import RestApi.ErrorHelpers
-      import RestApi.Gettext
+      import ElixirApi.Router.Helpers
+      import ElixirApi.ErrorHelpers
+      import ElixirApi.Gettext
     end
   end
 
@@ -64,11 +53,7 @@ defmodule RestApi.Web do
   def channel do
     quote do
       use Phoenix.Channel
-
-      alias RestApi.Repo
-      import Ecto
-      import Ecto.Query, only: [from: 1, from: 2]
-      import RestApi.Gettext
+      import ElixirApi.Gettext
     end
   end
 
