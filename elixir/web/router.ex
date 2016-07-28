@@ -5,7 +5,7 @@ defmodule ElixirApi.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", ElixirApi do
+  scope "/api", ElixirApi do
     pipe_through :api
 
     resources "/json", HelloController
