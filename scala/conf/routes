@@ -1,0 +1,2 @@
+GET		/							controllers.HelloWorldController.index
+GET		/api/json					controllers.HelloWorldController.index
